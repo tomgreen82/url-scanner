@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlScannerApp", "UrlScannerApp\UrlScannerApp.csproj", "{C7E3C3A4-A1E6-4952-8858-6A359715C514}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7C6C3848-0A42-4376-B03A-022B539EFF6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{7C6C3848-0A42-4376-B03A-022B539EFF6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{E04E9B7F-9F02-4B02-B901-CB17E326AA77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7C6C3848-0A42-4376-B03A-022B539EFF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6C3848-0A42-4376-B03A-022B539EFF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6C3848-0A42-4376-B03A-022B539EFF6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E04E9B7F-9F02-4B02-B901-CB17E326AA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E04E9B7F-9F02-4B02-B901-CB17E326AA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E04E9B7F-9F02-4B02-B901-CB17E326AA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E04E9B7F-9F02-4B02-B901-CB17E326AA77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using CsvHelper;
-using CsvHelper.Configuration;
 using UrlScannerApp.Data.Models;
 
 namespace UrlScannerApp.Data
@@ -17,10 +15,7 @@ namespace UrlScannerApp.Data
         {
             context.Database.EnsureCreated();
 
-            if (context.Records.Any())
-            {
-                return;
-            }
+            if (context.Records.Any()) return;
 
             var assembly = Assembly.GetExecutingAssembly();
             string resourceName = "UrlScannerApp.Data.records.csv";
