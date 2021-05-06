@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Url Scanner Data";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Url Scanner Data</h1>
+    <h2>Last Run: @Model.Job?.LastRun</h2>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Website</th>
+            <th>HasGoogle</th>
+            <th>ScanDuration (ms)</th>
+            <th>LastTimeScanned</th>
+        </tr>
+        @foreach(var record in Model.Records)
+         {
+        <tr>
+            <td>@record.ID</td>
+            <td>@record.Name</td>
+            <td>@record.Website</td>
+            <td>@record.HasGoogle</td>
+            <td>@record.ScanDuration</td>
+            <td>@record.LastTimeScanned</td>
+        </tr>
+         }
+    </table>
+
+    <form method="post"><button class="btn btn-success">Refresh</button></form>
+
+</div>
