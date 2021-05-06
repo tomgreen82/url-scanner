@@ -13,6 +13,7 @@ namespace UrlScannerApp.Data
         public static IServiceCollection ConfigureData(this IServiceCollection services)
         {
             services.AddScoped<IRecordRepository, RecordRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
             return services;
         }
     }

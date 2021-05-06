@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UrlScanner.Application.Models;
 using UrlScanner.Application.Services;
+using UrlScannerApp.Data.Models;
 
 namespace UrlScanner.Application.Jobs
 {
@@ -28,6 +29,13 @@ namespace UrlScanner.Application.Jobs
 
         public override Task DoWork(CancellationToken cancellationToken)
         {
+            var jobService = _serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IJobService>();
+            jobService.AddOrUpdate(new CronJob()
+            {
+                Name = "UrlScanJob",
+                LastRun = DateTime.Now
+            });
+
             _logger.LogInformation($"{DateTime.Now:hh:mm:ss} UrlScanJob is working.");
             var recordService = _serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IRecordService>();
             return recordService.ProcessRecords();

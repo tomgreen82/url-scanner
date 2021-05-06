@@ -10,5 +10,6 @@ namespace UrlScannerApp.Data
         }
 
         public DbSet<Record> Records { get; set; }
+        public DbSet<CronJob> CronJobs { get; set; }
     }
 }

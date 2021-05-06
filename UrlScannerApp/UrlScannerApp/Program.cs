@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -32,7 +33,7 @@ namespace UrlScannerApp
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<UrlScannerDbContext>();
+                    var context = services.GetRequiredService<IDbContextFactory<UrlScannerDbContext>>();
                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)

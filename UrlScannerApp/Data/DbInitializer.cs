@@ -1,5 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -11,10 +12,17 @@ namespace UrlScannerApp.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(UrlScannerDbContext context)
+        public static void Initialize(IDbContextFactory<UrlScannerDbContext> contextFactory)
         {
+            var context = contextFactory.CreateDbContext();
             context.Database.EnsureCreated();
 
+            InitializeRecords(context);
+            InitializeJobs(context);
+        }
+
+        private static void InitializeRecords(UrlScannerDbContext context)
+        {
             if (context.Records.Any()) return;
 
             var assembly = Assembly.GetExecutingAssembly();
@@ -34,6 +42,13 @@ namespace UrlScannerApp.Data
                     context.SaveChanges();
                 }
             }
+        }
+        private static void InitializeJobs(UrlScannerDbContext context)
+        {
+            if (context.CronJobs.Any()) return;
+
+            context.CronJobs.Add(new CronJob() { Name = "UrlScanJob"});
+            context.SaveChanges();
         }
     }
 }

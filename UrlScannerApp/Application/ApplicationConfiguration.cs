@@ -18,9 +18,10 @@ namespace UrlScanner.Application
             services.AddCronJob<UrlScanJob>(c =>
             {
                 c.TimeZoneInfo = TimeZoneInfo.Local;
-                c.CronExpression = @"*/5 * * * *";
+                c.CronExpression = @"*/1 * * * *";
             });
             services.AddScoped<IRecordService, RecordService>();
+            services.AddScoped<IJobService, JobService>();
             return services;
         }
 
